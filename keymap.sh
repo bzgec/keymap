@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Usage:
+#
+# * Set "si" layout: `keymap.sh si`
+# * Set "si_colemak" layout: `keymap.sh si_colemak`
+# * Toggle between "si" and "si_colemak" layouts: `keymap.sh`
+# * Get current layout: `keymap.sh get`
+
 set -euo pipefail  # https://gist.github.com/maxisam/e39efe89455d26b75999418bf60cf56c
 
 configFolder="${HOME}/.config/keymap"
@@ -18,13 +25,16 @@ if [ $# -eq 0 ]; then
     else
         # File exists
         currKeymap=$(cat ${currKeymapFile})
-        echo "Current keymap file content: ${currKeymap}"
+        # echo "Current keymap file content: ${currKeymap}"
         if [ "${currKeymap}" == "${defaultKeymap}" ]; then
             scriptParam="${defaultCustomKeymap}"
         else
             scriptParam="${defaultKeymap}"
         fi
     fi
+elif [ "$1" == "get" ]; then
+    cat "${currKeymapFile}"
+    exit 0
 elif [ "$1" != "${defaultCustomKeymap}" ]; then
     scriptParam="${defaultKeymap}"
 else

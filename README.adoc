@@ -1,7 +1,7 @@
 = Custom key mapping
 :toc:
 :sectnums:
-:sectnumlevels: 2
+:sectnumlevels: 3
 
 ---
 
@@ -34,11 +34,19 @@ but right now there is no default support for it and problem with slovenian lett
 . Change layout: `setxkbmap si_colemak`
 . Revert back: `setxkbmap si` (or `us`...)
 
+==== link:keymap.sh[]
 You can also use the provided link:keymap.sh[] script:
 
 . Copy custom layout: `cp xkb/symbols/si_colemak /usr/share/X11/xkb/symbols/`
 . Copy script: `mkdir -p ~/.config/keymap/ && cp keymap.sh ~/.config/keymap/`
 . Run script to toggle between layouts: `~/.config/keymap/keymap.sh`
+
+===== Usage
+* Set "si" layout: `keymap.sh si`
+* Set "si_colemak" layout: `keymap.sh si_colemak`
+* Toggle between "si" and "si_colemak" layouts: `keymap.sh`
+* Get current layout: `keymap.sh get`
+
 
 == Setup for windows (only CAPS to Backspace)
 - link:windowsSetup.adoc[]
