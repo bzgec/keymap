@@ -10,7 +10,6 @@
 set -euo pipefail  # https://gist.github.com/maxisam/e39efe89455d26b75999418bf60cf56c
 
 configFolder="${HOME}/.config/keymap"
-currKeymapFile="${configFolder}/currKeymap.txt"
 # mkdir -p ~/.config/keymap/ && cp keymap.sh ~/.config/keymap/
 
 defaultKeymap="si"
@@ -18,22 +17,16 @@ defaultCustomKeymap="si_colemak"
 
 if [ $# -eq 0 ]; then
     # No intput parameter - toggle
-    if [ ! -f "${currKeymapFile}" ]; then
-        # File doesn't exits -> create it with default keymap
-        echo "Current keymap file doesn't exist - creating new one."
-        scriptParam="${defaultKeymap}"
+    currKeymap=$(setxkbmap -query | awk '/layout/ {split($0,a," "); print a[2]}')
+    # echo "Current keymap file content: ${currKeymap}"
+    if [ "${currKeymap}" == "${defaultKeymap}" ]; then
+        scriptParam="${defaultCustomKeymap}"
     else
-        # File exists
-        currKeymap=$(cat ${currKeymapFile})
-        # echo "Current keymap file content: ${currKeymap}"
-        if [ "${currKeymap}" == "${defaultKeymap}" ]; then
-            scriptParam="${defaultCustomKeymap}"
-        else
-            scriptParam="${defaultKeymap}"
-        fi
+        scriptParam="${defaultKeymap}"
     fi
 elif [ "$1" == "get" ]; then
-    cat "${currKeymapFile}"
+    currKeymap=$(setxkbmap -query | awk '/layout/ {split($0,a," "); print a[2]}')
+    echo $currKeymap
     exit 0
 elif [ "$1" != "${defaultCustomKeymap}" ]; then
     scriptParam="${defaultKeymap}"
@@ -42,7 +35,6 @@ else
 fi
 
 echo "Setting '${scriptParam}'"
-echo "${scriptParam}" > "${currKeymapFile}"
 
 # Setup the keymapping
 setxkbmap "${scriptParam}"
