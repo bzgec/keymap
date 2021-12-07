@@ -4,7 +4,7 @@ set -eu
 xkb_dir_from=$(dirname "$0")
 xkb_dir_to="/usr/share/X11/xkb"
 layout="si_colemak"
-description="Slovenian (colemak-dh)"
+description="Slovenian (colemak-dh angle mode)"
 mods=""
 description_mods=""
 variants=""
