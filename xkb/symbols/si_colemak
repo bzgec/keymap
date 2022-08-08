@@ -52,6 +52,12 @@ xkb_symbols "basic" {
     key <AB09> { [       period,      greater ] };
     key <AB10> { [        slash,     question ] };
     key <KPDL> { [    KP_Delete, KP_Separator ] };
-    include "capslock(backspace)"
+    //key <CAPS> { [    BackSpace,    Caps_Lock ] };
+    key <CAPS> {
+        type[Group1] = "TWO_LEVEL",
+        symbols[Group1] = [ BackSpace, Caps_Lock ],
+        actions[Group1] = [ NoAction(), LockMods(modifiers = Lock) ]
+    };
+    // include "capslock(backspace)"
     include "level3(ralt_switch)"
 };
