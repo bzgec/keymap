@@ -62,6 +62,11 @@ You can also use the provided link:keymap.sh[] script:
 * link:https://alexarmstrong.net/2015/01/reassign-capslock-to-backspace[Reassign capslock to backspace]
 * link:https://colemakmods.github.io/ergonomic-mods/angle.html[Colemak - angle mode]
 * link:https://colemakmods.github.io/ergonomic-mods/wide.html[Colemak - wide mode]
+* link:https://karols.github.io/blog/2013/11/18/creating-custom-keyboard-layouts-for-linux/[Creating custom keyboard layouts]
+** Define the behaviour of the decimal point key on the numpad. (More accurately,
+imports such behaviour override from `/usr/share/X11/xkb/symbols/kpdl`.): `include "kpdl(comma)"`
+** Define how the 3rd level (the one with accented characters, the one I referred to as "AltGr")
+is accessed. In this case, it’s with the right Alt key.: `include "level3(ralt_switch)"`
 
 === Display keyboard layout
 * Using link:http://florence.sourceforge.net/english.html[Florence] to display keyboard layout - link:https://aur.archlinux.org/packages/florence/[AUR package]
