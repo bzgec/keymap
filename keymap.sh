@@ -9,7 +9,7 @@
 
 set -euo pipefail  # https://gist.github.com/maxisam/e39efe89455d26b75999418bf60cf56c
 
-configFolder="${HOME}/.config/keymap"
+# configFolder="${HOME}/.config/keymap"
 # mkdir -p ~/.config/keymap/ && cp keymap.sh ~/.config/keymap/
 
 defaultKeymap="si"
@@ -26,7 +26,7 @@ if [ $# -eq 0 ]; then
     fi
 elif [ "$1" == "get" ]; then
     currKeymap=$(setxkbmap -query | awk '/layout/ {split($0,a," "); print a[2]}')
-    echo $currKeymap
+    echo "$currKeymap"
     exit 0
 elif [ "$1" != "${defaultCustomKeymap}" ]; then
     scriptParam="${defaultKeymap}"
