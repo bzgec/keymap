@@ -10,6 +10,8 @@ Custom key mapping
 .. contents:: Table of Contents
    :depth: 2
 
+MOVED TO `GitLab <https://gitlab.com/bzgec/keymap>`__
+=====================================================
 
 My Slovenian Colemak-DH angle mode
 ==================================
