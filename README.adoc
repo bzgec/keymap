@@ -68,5 +68,11 @@ imports such behaviour override from `/usr/share/X11/xkb/symbols/kpdl`.): `inclu
 ** Define how the 3rd level (the one with accented characters, the one I referred to as "AltGr")
 is accessed. In this case, it’s with the right Alt key.: `include "level3(ralt_switch)"`
 
+* link:https://dreymar.colemak.org/layers-extend.html[All about Extend]
+* link:https://forum.colemak.com/topic/2675-share-your-favorite-extend-tricks/[Extend layer]
+* link:https://github.com/tmk/tmk_keyboard/wiki[TMK Products/Keyboard]
+
+* link:https://linux.die.net/man/1/xev[XEV - print contents of X events]
+
 === Display keyboard layout
 * Using link:http://florence.sourceforge.net/english.html[Florence] to display keyboard layout - link:https://aur.archlinux.org/packages/florence/[AUR package]
